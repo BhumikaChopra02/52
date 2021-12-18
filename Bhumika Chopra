@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int a[3], c[3], suit[3], i;
+
+void scanRandoms(int lower, int upper, int count) 
+	{
+    for (i = 0; i < count; i++) {
+        int num = (rand() %
+           (upper - lower + 1)) + lower;
+        a[i]=num;
+    	}
+	}
+
+int main () {
+	
+	int lower=1, upper=52, count=3;
+    srand(time(0));
+	
+	printf("This code will give you 3 cards from a deck of 52 playing cards\n");	
+	
+    scanRandoms(lower, upper, count);
+       
+    for(i=0;i<3;i++) 
+	
+	{
+		//selecting suit
+    	if (a[i]<=13) {
+    		suit[i]=1;
+    		c[i]=a[i];
+		}
+		else if (a[i]>13 && a[i]<=26) {
+			suit[i]=2;
+			c[i]=a[i]-13;
+		}
+		else if (a[i]>26 && a[i]<=39) {
+			suit[i]=3;
+			c[i]=a[i]-26;
+		}
+		else if (a[i]>39) {
+			suit[i]=4;
+			c[i]=a[i]-39;
+		}
+		
+		//selecting card
+		if (c[i]=1) {
+    		switch (suit[i]) {
+				case '1':
+					printf("Ace of Spades");
+					break;
+				case '2':
+					printf("Ace of Hearts");
+					break;
+				case '3':
+					printf("Ace of Diamonds");
+					break;
+				case '4':
+					printf("Ace of Clubs");
+					break;
+			}
+		}
+		else if (c[i]=11) {
+			switch (suit[i]) {
+				case '1':
+					printf("Jack of Spades");
+					break;
+				case '2':
+					printf("Jack of Hearts");
+					break;
+				case '3':
+					printf("Jack of Diamonds");
+					break;
+				case '4':
+					printf("Jack of Clubs");
+					break;
+			}
+		}
+		else if (c[i]=12) {
+			switch (suit[i]) {
+				case '1':
+					printf("Queen of Spades");
+					break;
+				case '2':
+					printf("Queen of Hearts");
+					break;
+				case '3':
+					printf("Queen of Diamonds");
+					break;
+				case '4':
+					printf("Queen of Clubs");
+					break;
+			}
+		}
+		else if (c[i]=13) {
+			switch (suit[i]) {
+				case '1':
+					printf("King of Spades");
+					break;
+				case '2':
+					printf("King of Hearts");
+					break;
+				case '3':
+					printf("King of Diamonds");
+					break;
+				case '4':
+					printf("King of Clubs");
+					break;
+			}
+		}
+		else {
+			switch (suit[i]) {
+				case '1':
+					printf("%d of Spades", c[i]);
+					break;
+				case '2':
+					printf("%d of Hearts", c[i]);
+					break;
+				case '3':
+					printf("%d of Diamonds", c[i]);
+					break;
+				case '4':
+					printf("%d of Clubs", c[i]);
+					break;
+			}
+		}
+	}
+	
+    return 0;
+}
